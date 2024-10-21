@@ -18,6 +18,15 @@
         </div>
         <h3 id="greetings" class="text-2xl font-bold">Good Afternoon</h3>
         <h4 id="local-time">12:50 PM</h4>
+        <div
+          id="sidebar-forcast"
+          class="grid gap-4 grid-cols-3 flex-col text-center"
+        >
+          <div
+            v-for="n in 6"
+            class="w-full h-full rounded-md p-2 border border-colorOutlineLight dark:border-colorOutlineDark"
+          ></div>
+        </div>
       </div>
     </div>
   </div>

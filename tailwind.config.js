@@ -21,8 +21,8 @@ module.exports = {
       },
       colors: {
         /* light */
-        colorSurfaceLight: "#F4F4F4",
-        colorBackgroundLight: "#C7C7C7",
+        colorSurfaceLight: "#FAFAFA",
+        colorBackgroundLight: "#F4F4F4F4",
         colorTextLight: "#3E3E3E",
         colorOutlineLight: "#D1D1D1",
         /* dark */
