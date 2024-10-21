@@ -1,3 +1,3 @@
 <template>
-  <Container> Index</Container>
+  <div class="flex"></div>
 </template>
