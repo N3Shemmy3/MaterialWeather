@@ -1,3 +1,15 @@
+<script setup lang="ts">
+const weekForcast = ref([
+  { day: "Today", temp: "18", condition: "Sunny", active: true },
+  { day: "Mon", temp: "22", condition: "Mist", active: false },
+  { day: "Tue", temp: "12", condition: "Windy", active: false },
+  { day: "Wen", temp: "34", condition: "Rainy", active: false },
+  { day: "Thu", temp: "10", condition: "Cloudy", active: false },
+  { day: "Fri", temp: "32", condition: "Showers", active: false },
+  { day: "Sat", temp: "24", condition: "Foggy", active: false },
+]);
+</script>
+
 <template>
   <div class="w-full h-screen flex flex-row divide-x rounded-sm">
     <div
@@ -17,9 +29,35 @@
         </div>
       </header>
       <!-- Main Weather content-->
-      <div class="h-full mx-auto flex flex-col items-center justify-center">
+      <div class="flex-grow mx-auto flex flex-col items-center justify-center">
         <h1 id="main-temp" class="text-[200px] -m-4">20°</h1>
         <h3 id="main-temp-condition" class="text-2xl">Cloudy</h3>
+      </div>
+
+      <!--Daily Forcast-->
+      <div
+        class="w-full md:max-w-2xl mx-auto grid gap-4 grid-responsive items-center"
+      >
+        <div
+          v-for="day in weekForcast"
+          class="w-full min-h-20 flex flex-col cursor-pointer duration-300 transition-all bg-opacity-80 hover:bg-colorBackgroundLight dark:hover:bg-colorBackgroundDark items-center justify-center space-y-2 p-4 rounded-xl"
+          :class="{
+            'border-2 bg-colorBackgroundLight dark:bg-colorBackgroundDark':
+              day.active,
+          }"
+        >
+          <span id="weekday" class="text-base text-nowrap opacity-80">{{
+            day.day
+          }}</span>
+          <span id="weekday-temp" class="text-xl text-nowrap opacity-70"
+            >{{ day.temp }}°
+          </span>
+          <span
+            id="weekday-condition"
+            class="text-base text-nowrap opacity-60"
+            >{{ day.condition }}</span
+          >
+        </div>
       </div>
     </div>
     <div class="w-80 h-full px-4 py-2 md:p-4 space-y-4">
@@ -46,7 +84,7 @@
           <div class="grid gap-4 grid-cols-3">
             <div
               v-for="n in 6"
-              class="w-full min-h-20 flex flex-col space-y-2 p-2 rounded-md border-2"
+              class="w-full min-h-20 flex flex-col items-center justify-center space-y-2 p-2 rounded-md border-2"
             >
               <span id="temp-time" class="text-sm opacity-60">1 PM</span>
               <span id="temp" class="text-lg text-nowrap">20° </span>
@@ -62,5 +100,9 @@
 <style>
 .sidebar-action {
   @apply flex items-center p-2 cursor-pointer shadow-sm duration-300 transition-colors hover:bg-opacity-80 rounded-full bg-colorSurfaceLight dark:bg-colorSurfaceDark;
+}
+.grid-responsive {
+  grid-area: span;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
 }
 </style>
