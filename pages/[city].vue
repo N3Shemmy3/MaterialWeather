@@ -20,12 +20,19 @@
         <h4 id="local-time">12:50 PM</h4>
         <div
           id="sidebar-forcast"
-          class="grid gap-4 grid-cols-3 flex-col text-center"
+          class="flex flex-col text-center space-y-2 md:space-y-4"
         >
-          <div
-            v-for="n in 6"
-            class="w-full h-full rounded-md p-2 border border-colorOutlineLight dark:border-colorOutlineDark"
-          ></div>
+          <h4 class="text-base">Hourly Forcast</h4>
+          <div class="grid gap-4 grid-cols-3">
+            <div
+              v-for="n in 6"
+              class="w-full min-h-20 flex flex-col space-y-2 p-2 rounded-md border-2 border-colorOutlineLight dark:border-colorOutlineDark"
+            >
+              <span id="temp-time" class="text-sm opacity-60">1 PM</span>
+              <span id="temp" class="text-lg text-nowrap">20° </span>
+              <span id="temp-condition" class="text-sm opacity-60">Cloudy</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
